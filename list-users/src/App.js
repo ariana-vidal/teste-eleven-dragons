@@ -1,11 +1,13 @@
+import { UsersProvider } from "./context/UsersProvider";
 import { AllUsers } from "./pages/AllUsers";
 
 
 function App() {
   return (
-    <div className="App">
+    <UsersProvider>
       <AllUsers />
-    </div>
+    </UsersProvider>
+    
   );
 }
 
