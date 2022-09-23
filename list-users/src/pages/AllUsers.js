@@ -1,20 +1,8 @@
-import { useEffect, useState } from 'react';
-import { usersAPI } from '../utils/requestApi';
-
+import React, { useContext } from 'react';
+import UsersContext from '../context/UsersContext';
 
 export function AllUsers() {
-  const [users, setUsers] = useState([]);
-
-  useEffect(() => {
-    const fecthUser = async () => {
-      const data = await usersAPI()
-      setUsers(data)
-    }
-    fecthUser()
-  }, []);
-
-  console.log(users);
-
+  const { users } = useContext(UsersContext);
   return (
     <div>
       <span>Usuários cadastrados:</span>
