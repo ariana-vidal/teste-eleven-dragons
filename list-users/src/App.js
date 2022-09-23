@@ -1,7 +1,10 @@
+import { AllUsers } from "./pages/AllUsers";
+
+
 function App() {
   return (
     <div className="App">
-      <h1>iniciando projeto</h1>
+      <AllUsers />
     </div>
   );
 }
