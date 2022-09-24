@@ -4,24 +4,33 @@ import UsersContext from './UsersContext';
 import { usersAPI } from '../utils/requestApi';
 
 export function UsersProvider({ children }) {
-  const [users, setUsers] = useState([]);
+  const [originalData, setOriginalData] = useState([]);
+  const [data, setData] = useState([]);
+  const [filterByName, setFilterByName] = useState('');
+  const [refresh, setRefresh] = useState(false);
 
   useEffect(() => {
     const fecthUser = async () => {
-      const data = await usersAPI()
-      setUsers(data)
+      const dataUsers = await usersAPI()
+      setOriginalData(dataUsers)
+      setData(dataUsers)
     }
     fecthUser()
 
-  }, []);
+  }, [refresh]);
 
-  console.log('user provider:', users);
 
   return (
     <UsersContext.Provider
       value={ {
-        users,
-        setUsers,
+        originalData,
+        setOriginalData,
+        filterByName,
+        setFilterByName,
+        data,
+        setData,
+        refresh,
+        setRefresh
       } }
     >
       { children }

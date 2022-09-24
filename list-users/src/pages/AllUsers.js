@@ -1,12 +1,13 @@
 import React, { useContext } from 'react';
 import UsersContext from '../context/UsersContext';
+import { HeaderFilterName } from '../components/HeaderFilterName';
 
 export function AllUsers() {
-  const { users } = useContext(UsersContext);
+  const { data } = useContext(UsersContext);
   return (
     <div>
-      <span>Usuários cadastrados:</span>
-     {users.map(({ id, name, email, status }) => (
+      <HeaderFilterName />
+     {data.map(({ id, name, email, status }) => (
        <section key={ id }>
          <section className="card">
             <span>{`name: ${name}`}</span>
