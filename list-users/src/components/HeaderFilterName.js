@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import React, { useContext, useEffect } from 'react';
 import UsersContext from '../context/UsersContext';
 
@@ -17,6 +18,15 @@ export function HeaderFilterName() {
           setFilterByName(target.value);
         } }
       />
+      <Link
+        to="/register"
+      >
+        <button
+          type="button"
+        >
+          Cadastrar Usuário
+        </button>
+      </Link>
     </header>
   )
 }
