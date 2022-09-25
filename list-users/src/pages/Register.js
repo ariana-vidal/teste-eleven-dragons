@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
-import React, {useContext, useState} from 'react'
+import React, {useContext, useState, useEffect} from 'react'
 import UsersContext from '../context/UsersContext';
 import { newUsersAPI } from '../utils/requestPostApi';
+import userValidation from '../utils/userValidation';
 
 export default function Register() {
   const { refresh, setRefresh } = useContext(UsersContext)
@@ -9,6 +10,7 @@ export default function Register() {
   const [email, setEmail] = useState('')
   const [status, setStatus] = useState('')
   const [gender, setGender] = useState('')
+  const [disbled, setDisabled] = useState(false);
 
     const postUser = async (event) => {
       event.preventDefault();
@@ -22,6 +24,16 @@ export default function Register() {
      await newUsersAPI(newUser)
       setRefresh(!refresh);
     }
+
+    useEffect(() => {
+      const result = userValidation(name, email);
+      if (result) {
+        setDisabled(true);
+      } else {
+        setDisabled(false);
+      }
+    }, [name, email]);
+  
      
     return (
       <div>
@@ -72,6 +84,7 @@ export default function Register() {
           </select>
 
           <button
+            disabled={ disbled }
             onClick={postUser}
           >
             Cadastrar
