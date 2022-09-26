@@ -25,30 +25,35 @@ export function HeaderFilter() {
   return (
     <header>
       <h1>Usuários Cadastrados</h1>
-      <input
-        placeholder="filtrar pelo nome"
-        onChange={ ({ target }) => {
-          setFilterByName(target.value);
-        } }
-      />
-      <select
-            onChange={ ({ target }) => {
-              setFilterByStatus(target.value);
-              } }
-          >
-            <option>Filtre pelo status</option>
-            <option value="active">active</option>
-            <option value="inactive">inactive</option>
-          </select>
-      <Link
-        to="/register"
-      >
-        <button
-          type="button"
+      <section> 
+        <input
+          className="inputs"
+          placeholder="filtrar pelo nome"
+          onChange={ ({ target }) => {
+            setFilterByName(target.value);
+          } }
+        />
+        <select
+          className="inputs"
+          onChange={ ({ target }) => {
+            setFilterByStatus(target.value);
+            } }
         >
-          Cadastrar Usuário
-        </button>
-      </Link>
+          <option>Filtre pelo status</option>
+          <option value="active">active</option>
+          <option value="inactive">inactive</option>
+        </select>
+        <Link
+          to="/register"
+        >
+          <button
+            className="inputs"
+            type="button"
+          >
+            Cadastrar Usuário
+          </button>
+        </Link>
+      </section>
     </header>
   )
 }
