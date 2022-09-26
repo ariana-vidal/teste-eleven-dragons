@@ -28,27 +28,19 @@ export default function Register() {
     useEffect(() => {
       const result = userValidation(name, email);
       if (result) {
-        setDisabled(true);
-      } else {
         setDisabled(false);
+      } else {
+        setDisabled(true);
       }
     }, [name, email]);
   
      
     return (
-      <div>
-        <Link
-          to="/"
-        >
-          <button
-            type="button"
-          >
-            Ver Usuários Cadastrados
-          </button>
-        </Link>
-
+      <div className="register">
+        <h1>Cadastre um novo usuário:</h1>
         <form>
           <input
+            className="inputs"
             type="text"
             placeholder="Digite seu nome completo"
             onChange={ ({ target }) => {
@@ -56,6 +48,7 @@ export default function Register() {
               } }
           />
           <input
+            className="inputs"
             type="email"
             placeholder="Digite seu melhor email"
             onChange={ ({ target }) => {
@@ -63,6 +56,7 @@ export default function Register() {
             } }
           />
           <select
+            className="inputs"
             onChange={ ({ target }) => {
               setGender(target.value);
               } }
@@ -74,6 +68,7 @@ export default function Register() {
 
           
           <select
+            className="inputs"
             onChange={ ({ target }) => {
               setStatus(target.value);
               } }
@@ -84,11 +79,23 @@ export default function Register() {
           </select>
 
           <button
+            className="inputs"
             disabled={ disbled }
             onClick={postUser}
           >
             Cadastrar
           </button>
+
+          <Link
+          to="/"
+        >
+          <button
+            className="inputs"
+            type="button"
+          >
+            Ver Usuários Cadastrados
+          </button>
+        </Link>
         
         </form>
       </div>

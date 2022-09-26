@@ -7,6 +7,7 @@ export function UsersProvider({ children }) {
   const [originalData, setOriginalData] = useState([]);
   const [data, setData] = useState([]);
   const [filterByName, setFilterByName] = useState('');
+  const [filterByStatus, setFilterByStatus] = useState('');
   const [refresh, setRefresh] = useState(false);
 
   useEffect(() => {
@@ -30,7 +31,9 @@ export function UsersProvider({ children }) {
         data,
         setData,
         refresh,
-        setRefresh
+        setRefresh,
+        filterByStatus,
+        setFilterByStatus
       } }
     >
       { children }
