@@ -27,6 +27,11 @@ code {
   box-shadow: 5px 10px 8px #888888;
 }
 
+.card:hover {
+  background-color: white;
+  transition: 0.5s;
+}
+
 header > section{
   display: flex;
   justify-content:center;
