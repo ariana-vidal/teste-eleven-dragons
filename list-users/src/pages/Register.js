@@ -28,9 +28,9 @@ export default function Register() {
     useEffect(() => {
       const result = userValidation(name, email);
       if (result) {
-        setDisabled(true);
-      } else {
         setDisabled(false);
+      } else {
+        setDisabled(true);
       }
     }, [name, email]);
   
