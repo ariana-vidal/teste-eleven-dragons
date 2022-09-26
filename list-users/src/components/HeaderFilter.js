@@ -6,15 +6,10 @@ export function HeaderFilter() {
   const { setFilterByName, filterByName, filterByStatus, setFilterByStatus, originalData, setData } = useContext(UsersContext);
 
   useEffect(() => {
-    console.log('primeiro');
-    
     setData(originalData.filter((p) => p.name.toLowerCase().includes(filterByName.toLowerCase())));
-    // setData(originalData.filter((p) => p.status.includes(filterByStatus)));
   }, [filterByName]);
 
   useEffect(() => {
-    console.log('segundo');
-
     if (filterByStatus !== 'Filtre pelo status') {
       setData(originalData.filter((p) => p.status === filterByStatus));
     } else {
